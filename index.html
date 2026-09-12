@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="メルボルン短期留学を疑似体験してもらうWebサイト">
+        <meta name="viewport" content="width=device-width">
+        <title>メルボルン留学の魅力</title>
+        <style>
+            /* --全体--*/
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            #wrap {
+                width: 1000px;
+                margin: 0px auto;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                color: #333;
+                line-height: 1.8;
+            }
+            @media(max-width:800px) {
+                #wrap{
+                    width:100%;
+                }
+            }
+            /*--ヘッダー--*/
+            header {
+                background-image: url("images/flinder\ st\ station.jpeg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 30px;
+            }
+            header h1 {
+                line-height: 300px;
+                font-size: 35px;
+                text-align: center;
+                color: white;
+                text-shadow: 2px 2px 1px gray;
+            }
+            header p {
+                text-align: right;
+                color: white
+            }
+            /*--リンク--*/
+            nav {
+                background-color: #234f40;
+            }
+            nav ul {
+                margin: 0px;
+                padding: 0px;
+                display: flex;
+                list-style: none;
+                border: 3px solid gray;
+                border-top: none;
+                border-bottom: none;
+                font-size: 14px;
+            }
+            nav li {
+                flex: 1;
+                text-align: center;
+            }
+            nav a {
+                color: white;
+                display: block;
+                line-height: 50px;
+                text-decoration: none;
+            }
+            nav a:hover {
+                text-decoration: underline;
+            }
+            /*--メイン--*/
+            main {
+                text-align: center;
+                background-color: #f4f1ea;
+                padding-bottom: 30px;
+            }
+            main img {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+            }
+            main p {
+                text-align: left;
+            }
+            /*--各セクション--*/
+            section {
+                width: 80%;
+                margin: 0 auto;
+                padding: 70px 0;
+            }
+            section h2 {
+                font-size: 32px;
+                color: #234f40;
+                margin-bottom: 5px;
+            }
+            .subtitle {
+                margin-bottom: 40px;
+                color: #777;
+                text-align: center;
+            }
+            /*--留学概要--*/
+            .info-box {
+                padding: 25px;
+                margin-top: 30px;
+            }
+            /*--写真+文章の並び--*/
+            .two-column {
+                display: flex;
+                gap: 40px;
+                align-items: center;
+            }
+            .two-column img {
+                width: 48%;
+            }
+            .two-column div {
+                width: 48%;
+            }
+            /*--ある一日--*/
+            .day-box {
+                max-width: 750px;
+                margin: 40px auto 0;
+            }
+            .day-item {
+                display: flex;
+                gap: 30px;
+                padding: 20px 0;
+                border-bottom: 1px solid #ccc;              
+            }
+            .time {
+                width: 80px;
+                font-size: 22px;
+                font-weight: bold;
+                color: #234f40;
+                margin: 0;
+            }
+            .day-item h3 {
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+            .photo-box {
+                display: flex;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            .photo-box div {
+                width: 33%;
+            }
+            .day-photo {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                margin-top: 15px;
+            }
+            .day-photo img {
+                width: 45%;
+                height: 45%;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px gray;
+            }
+            .day-photo p {
+                width: 55%;
+            }
+            /*--メルボルンの生活--*/
+            .Life h3 {
+                margin-top: 60px;
+                margin-bottom: 20px;
+            }
+            .city-area {
+                margin-top: 50px;
+            }
+            .city-main-photo {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+            .city-small-photos {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .city-small-photos img {
+                width: 50%;
+                height: 230px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .city-gallery {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px
+            }
+            .city-gallery img {
+                width: calc(50% - 10px);
+                height: 250px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .city-cards {
+                display: flex;
+                gap: 20px;
+            }
+            .city-card {
+                width: 33%;
+            }
+            .city-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .city-card p {
+                font-size: 14px;
+            }
+            /*--お気に入りスポット--*/
+            .favorite-box {
+                margin-top: 60px;
+            }
+            .favorite-box h3 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .favorite-item {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+            .favorite-item img{
+                width: 40%;
+                height: 230px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .favorite-item div {
+                width: 60%;
+            }
+            /*--費用--*/
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th,td {
+                border: 1px solid #ccc;
+                padding: 15px;
+            }
+            th {
+                background-color: #234f40;
+                color: white;
+            }
+            /*--Tips--*/
+            .tips-box {
+                display: flex;
+                gap: 20px;
+            }
+            .tips-box div {
+                width: 33%;
+                padding: 20px;
+            }
+            /*--メッセージ--*/
+            .message-box {
+                display: flex;
+                gap: 20px;
+            }
+            .message-box img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 40px;
+            }
+            .message {
+                margin-top: 40px;
+                margin-bottom: 40px;
+                padding: 25px;
+                font-size: 18px;
+            }
+            /*--フッター--*/
+            footer {
+                border-top: none;
+                background-color: #234f40;
+                text-align: center;
+                color: white;
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--ヘッダー-->
+            <header id="home">
+                <h1>都会と自然が融合した、メルボルン留学の魅力!</h1>
+                <p>2025年11月</p>
+                <p>私が体験した4週間のメルボルン留学</p>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#study">留学について</a></li>
+                    <li><a href="#school">学校生活</a></li>
+                    <li><a href="#room">寮生活</a></li>
+                    <li><a href="#day">ある1日</a></li>
+                    <li><a href="#melbourne">メルボルン生活</a></li>
+                    <li><a href="#cost">費用</a></li>
+                    <li><a href="#tips">留学Tips</a></li>
+                    <li><a href="#thoughts">4週間を終えて</a></li>
+                </ul>
+            </nav>
+            <main>
+                <!--1 留学について-->
+                <section id="study">
+                    <h2>My Study Abroad</h2>
+                    <p class="subtitle">私の4週間メルボルン留学</p>
+                    <p>
+                        2025年11月、オーストラリア　メルボルンで
+                        4週間の短期留学を経験しました。
+                        このサイトでは、学校生活や学生寮、
+                        メルボルンでの暮らしなどを紹介します。
+                    </p>
+                    <div class="info-box">
+                        <p><strong>期間 : </strong>4週間</p>
+                        <p><strong>時期 : </strong>2025年11月</p>
+                        <p><strong>学校 : </strong>Universal English</p>
+                        <p><strong>滞在 : </strong>Campas Melbourne 学生寮(1人部屋)</p>
+                    </div>
+                </section>
+                <!--2 学校生活-->
+                <section id="school">
+                    <h2>School Life</h2>
+                    <p class="subtitle">Universal Englishでの学校生活</p>
+                    <div class="two-column">
+                        <img src="images/20251125_School_課外授業.png" alt="Universal English">
+                        <div>
+                            <h3>どんな学校?</h3>
+                            <p>
+                                メルボルン滞在中はUniversal Englishに通いました。
+                                Universal Englishは、メルボルンの中心街にあるOxford系の語学学校で、
+                                さまざまな国から来た学生と一緒に英語を学びました。
+                            </p>
+                            <p>
+                                初日にオリエンテーションとスピーキングテストがあり、クラス分けされ、
+                                翌日からクラスで授業を開始。
+                                最初は少し緊張しましたが、授業やクラスメートとの交流を通じて、
+                                徐々に学校生活に慣れていきました。
+                            </p>
+                            <p>
+                                学校には日本人以外にもサウジアラビアやアイルランド、フィリピン、韓国、
+                                コスタリカなど、いろいろな国の人たちがいました。
+                                一緒にランチしたり、放課後に街中散策に出かけたり、単なる海外旅行では
+                                味わえない充実した経験ができました。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!--3 学生寮-->
+                <section id="room">
+                    <h2>Student Life</h2>
+                    <p class="subtitle">学生寮での生活</p>
+                    <div class="two-column">
+                        <div>
+                            <h3>1人部屋で生活</h3>
+                            <p>
+                                4週間の留学中は学生寮の1人部屋に滞在しました。
+                                室内にはシャワーとトイレ、冷蔵庫と電子レンジ、洗面台、テレビ、ベッド、
+                                ちょっとした勉強スペースが備えられているので、自分の時間を持ちながら
+                                生活することができました。
+                                食事は近くのスーパーで食材を買って作っていましたが、どの食材も量が多くて、
+                                1人だと消費するのが大変でしたw
+                            </p>
+                            <p>
+                                学生寮にはジム、屋外プール、バスケットコート、カフェなどが備わっていて、
+                                ときどき1階のロビーで勉強したり、ジムで軽く運動したりして過ごしました。
+                                プールサイドにあるバーベキュースペースで学生仲間とカンガルーのお肉にも
+                                初挑戦! (ちょっと筋肉質な感じでしたw)
+                            </p>
+                            <h3>良かったこと</h3>
+                            <p>
+                                学生寮には現地の学生もいて、寮のアクティビティに参加して、彼らと交流する
+                                機会もありました。映画観賞会やクリスマスカード作りにも参加しました。
+                            </p>
+                        </div>
+                        <img src="images/20251114_学生寮_バーベキュー.png" alt="学生寮">
+                    </div>
+                </section>
+                <!--ある1日の過ごし方-->
+                <section id="day">
+                    <h2>A Day in Melbourne</h2>
+                    <p class="subtitle">メルボルン留学のある1日</p>
+                    <p>
+                        平日は語学学校を中心に、授業後は街中観光を楽しみながら
+                        メルボルンでの生活を過ごしていました。
+                    </p>
+                    <div class="day-box">
+                        <div class="day-item">
+                            <p class="time">6:00</p>
+                            <div>
+                                <h3>起床・朝食</h3>
+                                <div class="day-photo">
+                                    <img src="images/20251129_朝食.png" alt="朝食">
+                                    <p>
+                                        寮のお部屋で朝食。学校へ行く準備をします。
+                                        朝食はスーパーで買ったパンにトッピングを載せて簡単にアレンジ。
+                                    </p>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">7:30</p>
+                            <div>
+                                <h3>学校へ</h3>
+                                <div class="day-photo">
+                                    <p>
+                                        学生寮から学校へはトラムで通っていました。
+                                        マイキーパスを購入しておくと、留学中の交通費はそれだけで済みます。
+                                        ちなみにマイキーパスは、トラム、電車、バスのいずれも使えるので、
+                                        初日に購入するのがおススメです!
+                                    </p>
+                                    <img src="images/20251112_トラム.png" alt="トラム">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">8:30</p>
+                            <div>
+                                <h3>学校の授業</h3>
+                                <div class="day-photo">
+                                    <img src="images/20251127_授業中.png" alt="授業中">
+                                    <p>
+                                        クラスメートと一緒に英語を学びます。
+                                        今日の1限目は文法の授業。
+                                        2限目と3限目は月に1度の課外授業なので、とても楽しみ。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">10:00</p>
+                            <div>
+                                <h3>課外授業</h3>
+                                <div class="day-photo">
+                                    <p>
+                                        課外授業は、ビクトリア国立美術館に見学。
+                                        美術館は1日では回り切れないくらい広く、見ごたえもありました。
+                                        そしてなんと無料で見学できます。
+                                    </p>
+                                    <img src="images/20251120_ビクトリア国立美術館_1.png" alt="ビクトリア国立美術館">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">13:00</p>
+                            <div>
+                                <h3>ランチ</h3>
+                                <div class="day-photo">
+                                    <img src="images/20251125_課外授業_移動中_1.png" alt="公園へ">
+                                    <p>
+                                        美術館見学の後は、近くの公園で、行く途中で購入した
+                                        パンやスナックを広げて、クラスメートとランチを楽しみました。                               
+                                        天気も良く気持ちのいい午後でした。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">14:15</p>
+                            <div>
+                                <h3>授業終了</h3>
+                                <div class="day-photo">
+                                    <p>
+                                        授業後は街歩きやカフェなどを楽しみます。
+                                        今日は別のクラスの友人と近くのビーチに足をのばします。
+                                    </p>
+                                    <img src="images/20251125_セントキルダビーチ_1.png" alt="セントキルダビーチ1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">14:30</p>
+                            <div>
+                                <h3>セントキルダビーチ</h3>
+                                <div class="day-photo">
+                                    <img src="images/20251125_セントキルダビーチ_2.png" alt="セントキルダビーチ2">
+                                    <p>
+                                        ビーチは学校からトラムで20分程度のところにありました。
+                                        今日は天気も良く日差しも暑く、たくさんの人たちが日光浴にきていました。
+                                        ビーチで遊んだ後は近くのカフェでちょっと一息。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">18:00</p>
+                            <div>
+                                <h3>買い物・夕食</h3>
+                                <div class="day-photo">
+                                    <p>
+                                        学生寮に帰る途中でスーパーに立ち寄って食材をゲット。
+                                        食材の値段は総じて日本とそんなに変わらない印象でした。
+                                        (食材のポーションが大きいので一瞬割高に感じますが、
+                                        量を考えると高くはないかなと)
+                                    </p>
+                                    <img src="images/20251110_メルボルンセントラル入口.png" alt="メルボルンセントラル">
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="day-item">
+                            <p class="time">20:00</p>
+                            <div>
+                                <h3>夕食・自由時間</h3>
+                                <p>
+                                    夕食は日本から持ってきた携帯用のご飯と、買ってきた食材で
+                                    簡単な手料理。
+                                    部屋には冷蔵庫や電子レンジ、寮の各階に共同キッチンもあるので、
+                                    自炊には困りません。
+                                    夕食の後は、宿題をしたり、翌日の準備をしたりして過ごします。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--4 メルボルン生活-->
+                <section id="melbourne">
+                    <h2>Melbourne Life</h2>
+                    <p class="subtitle">都会と自然、両方を楽しむ</p>
+                    <p>
+                        メルボルンでは、学校のある平日も休日も、
+                        街歩きやカフェ、自然を楽しむことができました。
+                        便利な都会でありながら、少し歩くと緑を感じられるところが魅力です。
+                    </p>
+                    <div class="Life">
+                        <div class="city-area">
+                            <h3>01 City</h3>
+                            <p>メルボルンの街並み</p>
+                            <img class="city-main-photo" 
+                            src="images/20251203_CBD_5.png" alt="メルボルンの街">
+                            <div class="city-small-photos">
+                                <img src="images/20251112_CBD_4.png" alt="CBDフォト">
+                                <img src="images/20251202_CBD_6.png" alt="CBDフォト">
+                            </div> 
+                            <p>
+                                トラムが走る街並みや歴史を感じる建物、近代的なビルなど、
+                                歩いているだけでも様々な表情を楽しむことがでしました。
+                                ほとんどの語学学校はメルボルンの中心街にあり、
+                                学校帰りに街中を散策したり、生活用品を調達したりできます。
+                                そして街中ではトラムを無料で乗車することができます。
+                            </p>
+                        </div>
+                        <div class="Architecture">
+                            <h3>02 Architecture</h3>
+                            <p>メルボルンの建物</p>
+                            <div class="city-gallery">
+                                <img src="images/20251118_CBD_7.png" alt="フリンダーストリート駅">
+                                <img src="images/20251114_CBD_2.png" alt="ビクトリア州議事堂">
+                                <img src="images/20251114_セントパトリックス大聖堂.png" alt="20251114_セントパトリックス大聖堂">
+                                <img src="images/20251118_CBD_8.png" alt="アーケード">
+                            </div>
+                            <p>(左上)フリンダーストリート駅　(右上)ビクトリア州議事堂　(左下)セントパトリック大聖堂　(右下)アーケード</p>
+                            <p>
+                                街には、歴史的な建物やアーケードも多く、見ごたえがあります。
+                                ゴールドラッシュで栄えた時代に建てられた建物が今も
+                                街のいたるところで見られます。
+                                ビクトリア州議事堂は予約をするとガイドツアーに無料で参加できます。
+                            </p>
+                        </div>
+                        <div class="Nature">
+                            <h3>03 Nature</h3>
+                            <div class="city-cards">
+                                <div class="city-card">
+                                    <img src="images/20251203_CBD_公園.png" alt="ガーデン1">
+                                    <p>公園や緑が身近にあり、都会にいながらリラックスできました。</p>
+                                </div>
+                                <div class="city-card">
+                                    <img src="images/20251205_郊外.png" alt="郊外">
+                                    <p>中心街を出て車で少し行くと、牧羊地などが広がっています。</p>
+                                </div>
+                                <div class="city-card">
+                                    <img src="images/グレートオーシャンロード.png" alt="グレートオーシャンロード">
+                                    <p>週末は日帰りツアーに参加しました。こちらは「グレートオーシャンロード」</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="favorite-box">
+                        <h3>My Favorite Places</h3>
+                        <div class="favorite-item">
+                            <img src="images/20251111_ビクトリア州立図書館_2.png" alt="ビクトリア州立図書館">
+                            <div>
+                                <h4>ビクトリア州立図書館</h4>
+                                <p>
+                                    私が留学先をメルボルンに決めた理由の一つ「ビクトリア州立図書館」。
+                                    ハリーポッターの世界を彷彿させる内観、ここで私も勉強してみたい!
+                                    と思った場所です。留学中はよく学校帰りに立ち寄って、
+                                    宿題を片づけたりしていました。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="favorite-item">
+                            <img src="images/20251113_クイーンビクトリアマーケット.png" alt="クイーンビクトリアマーケット">
+                            <div>
+                                <h4>クイーンビクトリアマーケット</h4>
+                                <p>メルボルン最大のマーケット。生鮮食品はもちろん、雑貨や日用品が
+                                    安く手に入ります。土産物もここで手ごろにゲットできます。
+                                    ちなみに、学生寮の共有キッチンに置いてある包丁の切れ味があまりにも
+                                    悪かったので、私は自分用にキャンピングナイフをここでゲットしました。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--5 費用-->
+                <section id="cost">
+                    <h2>Cost</h2>
+                    <p class="subtitle">4週間の主な留学費用</p>
+                    <table>
+                        <tr>
+                            <th>項目</th>
+                            <th>費用</th>
+                            <th>補足</th>
+                        </tr>
+                        <tr>
+                            <td>航空券</td>
+                            <td>約10万円</td>
+                            <td>ジェットスター航空　ケアンズ経由</td>
+                        </tr>
+                        <tr>
+                            <td>留学エージェントのパッケージ</td>
+                            <td>約35万円</td>
+                            <td>語学学校、学生寮、海外留学保険、等</td>
+                        </tr>
+                        <tr>
+                            <td>食費・交通費など</td>
+                            <td>約10万円</td>
+                            <td>主な生活費。レジャー費やお土産代は含まず</td>
+                        </tr>
+                    </table>
+                </section>
+                <!--6 Tips-->
+                <section id="tips">
+                    <h2>Study Abroad Tips</h2>
+                    <p class="subtitle">行く前に知っておくと安心!</p>
+                    <div class="tips-box">
+                        <div>
+                            <h3>01 交通</h3>
+                            <p>
+                                空港と市街地の移動はタクシーのため、Uberなどの
+                                タクシー予約アプリを事前に登録しておくといいです。
+                                現地の交通機関は、トラム、電車、バスなどがありますが、
+                                すべてMykiが使えるので買っておくと便利です。
+                            </p>
+                        </div>
+                        <div>
+                            <h3>02 買い物</h3>
+                            <p>
+                                滞在場所の最寄りのスーパーの場所などを確認しておくと安心です。
+                                CBD(メルボルン中心街)にもスーパーや日用雑貨を購入できるお店が
+                                数多くあるので、学校帰りに買っていくこともできます。
+                            </p>
+                        </div>
+                        <div>
+                            <h3>03 服装</h3>
+                            <p>
+                                メルボルンは天候が変わりやすいので、調整しやすい服装がおすすめです。
+                                オーストラリアでも南に位置しているため、他の都市に比べて気温は低め。
+                                11月は初夏のはずなのにジャケットがとても重宝しました。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!--7 4週間を終えて-->
+                <section id="thoughts">
+                    <h2>My Thoughts</h2>
+                    <p class="subtitle">4週間の留学を終えて</p>
+                    <div class="message-box">
+                        <p>
+                            留学前は、初めての海外留学で、ひと月近く1人で海外で生活することに不安もありました。
+                            しかし、実際に生活してみると、現地の人たちは親切でフレンドリーでとても過ごしやすく、
+                            学校でもすぐにたくさんの友人ができました。
+                            クラスで一緒に勉強したり、観光を楽しんだりして、英語だけでなく様々な経験をすることができました。
+                            4週間という短い期間でも、「海外で遊び、暮らす」という貴重な経験ができました。
+                        </p>
+                        <img src="images/20251125_me.png">
+                    </div>
+                    <p class="message">
+                        このサイトが、
+                        海外短期留学に興味を持っている方の
+                        最初の一歩につながれば嬉しいです。
+                    </p>
+                    <p>
+                        <a href="#home">ページの先頭へ戻る</a>
+                    </p>
+                </section>
+            </main>
+            <!--フッター-->
+            <footer>
+                <small>Copyright &copy; 2026 Miyoko. All Rights Reserved</small>
+            </footer>
+        </div>
+    </body>
+</html>
